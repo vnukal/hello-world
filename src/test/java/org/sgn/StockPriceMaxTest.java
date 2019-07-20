@@ -4,7 +4,8 @@
 
 package org.sgn;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class StockPriceMaxTest {
 
@@ -29,5 +30,11 @@ class StockPriceMaxTest {
         assertThrows(IllegalArgumentException.class, () -> StockPriceMax.getMaxProfit(stockPrices));
     }
 
+    @org.junit.jupiter.api.Test
+    void getMaxProfit_NoProfit() {
+        int[] stockPrices = {315, 250};
+
+        assertEquals(StockPriceMax.getMaxProfit(stockPrices), 0);
+    }
 
 }
